@@ -1,0 +1,29 @@
+---
+title: "Untitled"
+author: "Dries Reynders"
+date: "23 juni 2016"
+output: html_document
+---
+
+
+
+```{r, echo=FALSE}
+
+vars<-c("Sepal.Length","Sepal.Width","Petal.Length","Petal.Width")
+by<-"Species"
+data<-iris
+
+
+l<-length(unique(data[[by]]))
+vars.frame<-NULL
+
+for(i in 1:length(vars)){
+  vars.frame<-c(vars.frame,rep(vars[i],l))
+  }
+
+iris.summ<-bind_rows(lapply(vars,function(x){summary.fun(data,by=by,var=x)}))%>%bind_cols(data.frame(vars.frame),.)%>%rename(Variable=vars.frame)
+
+pander(iris.summ)
+
+```
+

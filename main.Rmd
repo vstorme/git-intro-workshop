@@ -1,0 +1,45 @@
+---
+title: "TestGit"
+author: "Dries Reynders"
+date: "23 juni 2016"
+output: word_document
+---
+
+This is just a tiny document to illustrate Git with RStudio. The complete illustration contains:
+
+  + main.Rmd: the main rmarkdown-file
+  + child1.Rmd: the first child to include in the main-file
+  + child2.Rmd: the second child to include in the main-file
+  + functiesTestGit.R: an R-file containing some functions that are used
+  
+
+In the first chunk: just load some libraries, set some options and source the R-file for acces to the functions.
+  
+```{r}
+library(dplyr)
+library(pander)
+
+source("functiesTestGit.R")
+
+
+
+knitr::opts_chunk$set(fig.width=14, fig.height=8,
+                      echo=TRUE, warning=FALSE, message=FALSE)
+
+
+```
+
+
+In the first child-file, some data from the dataset 'iris' are plotted.
+
+```{r child="child1.Rmd"}
+
+
+```
+
+
+The second child-file, provides a summary table of the same dataset.
+
+```{r child="child2.Rmd"}
+
+```

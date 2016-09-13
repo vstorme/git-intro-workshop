@@ -1,0 +1,15 @@
+---
+title: "Untitled"
+author: "Dries Reynders"
+date: "23 juni 2016"
+output: html_document
+---
+
+
+
+
+```{r, echo=FALSE}
+plot(x=iris$Petal.Length,y=iris$Petal.Width)
+```
+
+
